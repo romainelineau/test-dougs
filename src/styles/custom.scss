@@ -1,0 +1,34 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~bootstrap-icons/font/bootstrap-icons.min.css';
+
+$primary: #11ABEC;
+$secondary: #58676D;
+$gray-600: #F3F5F8;
+$black: #001A25;
+$body-tertiary-bg: $gray-600;
+$spacer: 1rem;
+
+// Custom CSS Buttons
+.nav-btn {
+    text-decoration: none;
+    padding: .5rem;
+    margin-right: $spacer * .5;
+    border-radius: .25rem;
+    font-size: .75rem;
+    color: $secondary;
+    background: none;
+    border: none;
+    transition: color .15s ease-in-out;
+
+    &.is-active {
+        color: $primary;
+        background: $body-tertiary-bg;
+    }
+
+    &:hover {
+        color: $primary;
+        transition: color .15s ease-in-out;
+    }
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
