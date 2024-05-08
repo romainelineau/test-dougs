@@ -9,3 +9,8 @@ export const selectCategoryListOrderActive = createSelector(
     selectCategoriesState,
     (state) => state.categorylistOrderSelected
 );
+
+export const selectCategories = createSelector(
+    selectCategoriesState,
+    (state) => state.categories
+);

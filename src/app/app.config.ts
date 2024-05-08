@@ -5,6 +5,8 @@ import { provideHttpClient } from "@angular/common/http";
 import { provideStore } from '@ngrx/store';
 import * as fromCategories from './categories/store/categories.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { provideEffects } from '@ngrx/effects';
+import { CategoriesEffects } from "./categories/store/categories.effects";
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -13,6 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideStore({
         [fromCategories.featureKey]: fromCategories.reducer
     }),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideEffects(CategoriesEffects)
 ]
 };
