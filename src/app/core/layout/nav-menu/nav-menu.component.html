@@ -1,0 +1,12 @@
+<nav class="navbar sticky-top navbar-expand bg-body">
+    <div class="container">
+        <a class="navbar-brand">Catégories</a>
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                @for (link of menu; track link.value) {
+                    <app-nav-menu-link [link]="link"/>
+                }
+            </div>
+        </div>
+    </div>
+</nav>

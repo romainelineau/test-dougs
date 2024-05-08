@@ -1,0 +1,4 @@
+export enum MenuLinkEnum {
+    CATEGORY_GROUP = 'CATEGORY_GROUP',
+    ALPHABETICAL_ORDER = 'ALPHABETICAL_ORDER',
+}
