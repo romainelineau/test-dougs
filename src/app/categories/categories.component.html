@@ -1,5 +1,6 @@
 <main class="bg-body-tertiary py-5">
     <section class="container bg-body p-0">
         <app-category-filters/>
+        <app-group-category-list [categories]="categories$ | async"/>
     </section>
 </main>
