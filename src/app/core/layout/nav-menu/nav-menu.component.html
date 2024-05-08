@@ -2,9 +2,9 @@
     <div class="container">
         <a class="navbar-brand">Catégories</a>
         <div class="collapse navbar-collapse">
-            <div class="navbar-nav">
+            <div *ngIf="categoryListOrderActive$ | async as categoryListOrderActive" class="navbar-nav">
                 @for (link of menu; track link.value) {
-                    <app-nav-menu-link [link]="link"/>
+                    <app-nav-menu-link [link]="link" [linkSelected]="categoryListOrderActive"/>
                 }
             </div>
         </div>
