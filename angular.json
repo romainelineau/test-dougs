@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "test-dougs:build:production"
+              "buildTarget": "test-dougs:build:production"
             },
             "development": {
-              "browserTarget": "test-dougs:build:development"
+              "buildTarget": "test-dougs:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "test-dougs:build"
+            "buildTarget": "test-dougs:build"
           }
         },
         "test": {
