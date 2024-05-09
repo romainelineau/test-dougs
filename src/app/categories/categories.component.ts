@@ -28,7 +28,7 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(LoadCategories());
-    this.groupedCategories$ = this.store.select(CategorySelectors.selectCategoriesFilteredByGroup);
+    this.groupedCategories$ = this.store.select(CategorySelectors.selectGroupOrderedCategories);
     this.alphabeticallyOrderedCategories$ = this.store.select(CategorySelectors.selectAlphabeticallyOrderedCategories);
     this.categorylistOrderSelected$ = this.store.select(CategorySelectors.selectCategoryListOrderActive);
   }

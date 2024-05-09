@@ -1,4 +1,4 @@
-import { ApplicationConfig, isDevMode } from "@angular/core";
+import { ApplicationConfig, LOCALE_ID, isDevMode } from "@angular/core";
 import { routes } from "./app.routes";
 import { provideRouter } from "@angular/router";
 import { provideHttpClient } from "@angular/common/http";
@@ -16,6 +16,7 @@ export const appConfig: ApplicationConfig = {
         [fromCategories.featureKey]: fromCategories.reducer
     }),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideEffects(CategoriesEffects)
+    provideEffects(CategoriesEffects),
+    { provide: LOCALE_ID, useValue: 'fr-FR' }
 ]
 };

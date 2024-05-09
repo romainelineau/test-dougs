@@ -137,4 +137,21 @@ $text-size: 1rem;
     padding: .15rem .75rem;
 }
 
+// Custom CSS Form Controls
+.form-control, .form-select {
+    font-size: $text-size * .75 !important;
+}
+.search-input {
+    .input-group-text {
+        font-size: $text-size * .75 !important;
+        background: none;
+        border-right: none;
+    }
+    
+    .form-control {
+        padding: .5rem 0;
+        border-left: none;
+    }
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap";

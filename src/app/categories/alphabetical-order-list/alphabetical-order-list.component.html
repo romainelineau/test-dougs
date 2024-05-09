@@ -1,5 +1,12 @@
-<div class="list-categories row m-0 row-cols-1 row-cols-md-2">
-    @for (category of categories; track category.id) {
-        <app-category-card class="col p-0" [category]="category" [displayBadge]="true"/>
-    }
-</div>
+
+@if (categories.length) {
+    <div class="list-categories row m-0 row-cols-1 row-cols-md-2">
+        @for (category of categories; track category.id) {
+            <app-category-card class="col p-0" [category]="category" [displayBadge]="true"/>
+        }
+    </div>
+} @else {
+    <div class="col d-flex justify-content-center p-5">
+        <p class="text-secondary">Aucun résultat</p>
+    </div>
+}

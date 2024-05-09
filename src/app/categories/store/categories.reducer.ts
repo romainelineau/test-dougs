@@ -9,12 +9,20 @@ export interface CategoriesState {
     categorylistOrderSelected: MenuLinkEnum;
     categories: Category[];
     categorySelected: number | null;
+    filters: {
+        search: string | null;
+        group: number | null;
+    }
 }
 
 export const initialState: CategoriesState = {
     categorylistOrderSelected: MenuLinkEnum.CATEGORY_GROUP,
     categories: [],
     categorySelected: null,
+    filters: {
+        search: null,
+        group: null,
+    },
 };
 
 export const reducer = createReducer(
@@ -27,8 +35,15 @@ export const reducer = createReducer(
         ...state,
         categories: action.categories,
     })),
-    on(CategoryActions.SetCategorySelected, (state, {categoryId}): CategoriesState => ({
+    on(CategoryActions.SetCategorySelected, (state, { categoryId }): CategoriesState => ({
         ...state,
         categorySelected: state.categorySelected === categoryId ? null : categoryId,
+    })),
+    on(CategoryActions.SetSearchFilter, (state, { search }): CategoriesState => ({
+        ...state,
+        filters: {
+            ...state.filters,
+            search: search !== null ? String(search) : null,
+        },
     }))
 );

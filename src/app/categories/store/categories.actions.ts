@@ -24,3 +24,8 @@ export const SetCategorySelected = createAction(
     '[Group Category List Component] Set Category Selected',
     props<{ categoryId: number }>(),
 );
+
+export const SetSearchFilter = createAction(
+    '[Category Search Component] Set Search Filter',
+    props<{ search: string | number | null }>(),
+);

@@ -16,8 +16,25 @@ export const selectCategories = createSelector(
     (state) => state.categories
 );
 
-export const selectAlphabeticallyOrderedCategories = createSelector(
+export const selectFilters = createSelector(
+    selectCategoriesState,
+    (state) => state.filters
+);
+
+export const selectCategoriesFilteredBySearch = createSelector(
     selectCategories,
+    selectFilters,
+    (categories, { search }) => {
+        if (search) {
+            return categories.filter((category) => category.wording.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+        }
+
+        return categories;
+    }
+);
+
+export const selectAlphabeticallyOrderedCategories = createSelector(
+    selectCategoriesFilteredBySearch,
     (categories) => {
         const categoriesSorted = [...categories];
         
@@ -25,12 +42,12 @@ export const selectAlphabeticallyOrderedCategories = createSelector(
     }
 );
 
-export const selectCategoriesFilteredByGroup = createSelector(
-    selectCategoriesState,
-    (state) => {
+export const selectGroupOrderedCategories = createSelector(
+    selectCategoriesFilteredBySearch,
+    (categories) => {
         const groupedCategories: {[key: number]: GroupedCategory} = {};
 
-        state.categories.forEach(category => {
+        categories.forEach(category => {
             const groupId = category.group?.id;
             
             // Check if group already exists
