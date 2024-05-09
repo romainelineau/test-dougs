@@ -1,10 +1,6 @@
 @for (group of groupedCategories; track group.id) {
-    <div class="group-label row m-0" [ngClass]="group.color">
-        <div class="col px-3">
-            <p class="fw-lighter m-0">{{ group.name }}</p>
-        </div>
-    </div>
-    <div class="list-categories row m-0 row-cols-1 row-cols-md-2">
+    <app-group-category-banner [group]="group" />
+    <div class="row m-0 row-cols-1 row-cols-md-2">
         @for (category of group.categories; track category.id) {
             <app-category-card class="col p-0" [category]="category"/>
         }

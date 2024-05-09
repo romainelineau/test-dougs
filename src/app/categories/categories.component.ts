@@ -19,7 +19,6 @@ import { AlphabeticalOrderListComponent } from './alphabetical-order-list/alphab
   styleUrl: './categories.component.scss'
 })
 export class CategoriesComponent implements OnInit {
-  categories$!: Observable<Category[]>;
   groupedCategories$!: Observable<GroupedCategory[]>;
   alphabeticallyOrderedCategories$!: Observable<Category[]>;
   categorylistOrderSelected$!: Observable<MenuLinkEnum>;
@@ -29,7 +28,6 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(LoadCategories());
-    this.categories$ = this.store.select(CategorySelectors.selectCategories);
     this.groupedCategories$ = this.store.select(CategorySelectors.selectCategoriesFilteredByGroup);
     this.alphabeticallyOrderedCategories$ = this.store.select(CategorySelectors.selectAlphabeticallyOrderedCategories);
     this.categorylistOrderSelected$ = this.store.select(CategorySelectors.selectCategoryListOrderActive);
