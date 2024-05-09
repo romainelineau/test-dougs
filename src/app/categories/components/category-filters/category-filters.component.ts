@@ -7,7 +7,6 @@ import { CategoryGroupsSelectComponent } from './category-groups-select/category
   standalone: true,
   imports: [CategorySearchComponent, CategoryGroupsSelectComponent],
   templateUrl: './category-filters.component.html',
-  styleUrl: './category-filters.component.scss'
 })
 export class CategoryFiltersComponent {
 

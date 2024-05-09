@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Category } from '../models/category.model';
+import { Category } from '../../models/category.model';
 import { CategoryCardComponent } from '../category-card/category-card.component';
 
 @Component({
@@ -7,7 +7,6 @@ import { CategoryCardComponent } from '../category-card/category-card.component'
   standalone: true,
   imports: [CategoryCardComponent],
   templateUrl: './alphabetical-order-list.component.html',
-  styleUrl: './alphabetical-order-list.component.scss'
 })
 export class AlphabeticalOrderListComponent {
   @Input() categories!: Category[];

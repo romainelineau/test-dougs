@@ -1,0 +1,60 @@
+// Color variables
+$primary: #11ABEC;
+$secondary: #58676D;
+$gray-600: #F3F5F8;
+$gray-800: #DCE4ED;
+$dark-gray: #636970;
+$blue-bg: #F1F7FC;
+$black: #001A25;
+$body-tertiary-bg: $gray-600;
+
+$m-green: #0ED99B;
+$m-bg-green: #ECFCF7;
+$m-purple: #B911EC;
+$m-bg-purple: #FBEFFF;
+$m-blue: #11ABEC;
+$m-bg-blue: #F1F7FB;
+$m-red: #FD755F;
+$m-bg-red: #FFEBE6;
+$m-pink: #EC1198;
+$m-bg-pink: #FDF2F9;
+$m-orange: #FAA11C;
+$m-bg-orange: #FEF5BF;
+
+// Space variables
+$spacer: 1rem;
+
+// Text variables
+$text-size: 1rem;
+
+// Custom classes
+.m-default {
+    color: $m-orange;
+    background: $m-bg-orange;
+    border: 1px solid $m-bg-orange;
+}
+.m-green {
+    color: $m-green;
+    background: $m-bg-green;
+    border: 1px solid $m-bg-green;
+}
+.m-purple {
+    color: $m-purple;
+    background: $m-bg-purple;
+    border: 1px solid $m-bg-purple;
+}
+.m-blue {
+    color: $m-blue;
+    background: $m-bg-blue;
+    border: 1px solid $m-bg-blue;
+}
+.m-red {
+    color: $m-red;
+    background: $m-bg-red;
+    border: 1px solid $m-bg-red;
+}
+.m-pink {
+    color: $m-pink;
+    background: $m-bg-pink;
+    border: 1px solid $m-bg-pink;
+}

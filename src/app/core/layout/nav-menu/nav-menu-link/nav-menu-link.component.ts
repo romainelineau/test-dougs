@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MenuLink } from '../menu-link';
 import { MenuLinkEnum } from '../menu-link.enum';
 import { Store } from '@ngrx/store';
-import { SetCategoryListOrder } from 'src/app/categories/store/categories.actions';
+import { SetMenuLinkSelected } from 'src/app/categories/store/categories.actions';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 
 @Component({
@@ -18,7 +18,7 @@ export class NavMenuLinkComponent {
 
   constructor(private store: Store) {}
 
-  onSelectCategoryListOrder(order: MenuLinkEnum): void {
-    this.store.dispatch(SetCategoryListOrder({ order }));    
+  onSelectCategoryListOrder(link: MenuLinkEnum): void {
+    this.store.dispatch(SetMenuLinkSelected({ link }));    
   }
 }

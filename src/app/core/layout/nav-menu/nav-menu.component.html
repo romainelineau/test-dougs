@@ -1,10 +1,10 @@
-<nav class="navbar sticky-top bg-body navbar-expand">
-    <div class="container p-0">
+<nav class="navbar fixed-top bg-body navbar-expand">
+    <div class="container px-3 p-md-0">
         <a class="navbar-brand fw-semibold">Catégories</a>
         <div class="collapse navbar-collapse">
-            <div *ngIf="categoryListOrderActive$ | async as categoryListOrderActive" class="navbar-nav">
+            <div *ngIf="menuLinkSelected$ | async as menuLinkSelected" class="navbar-nav">
                 @for (link of menu; track link.value) {
-                    <app-nav-menu-link [link]="link" [linkSelected]="categoryListOrderActive"/>
+                    <app-nav-menu-link [link]="link" [linkSelected]="menuLinkSelected"/>
                 }
             </div>
         </div>

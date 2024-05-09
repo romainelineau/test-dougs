@@ -1,11 +1,11 @@
 import { Category } from "./category.model";
 
-export interface CategoryGroup {
+export interface Group {
     id: number;
     name: string;
     color: string;
 }
 
-export interface GroupedCategory extends CategoryGroup {
+export interface GroupedCategory extends Group {
     categories: Category[];
 }

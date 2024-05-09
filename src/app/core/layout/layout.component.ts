@@ -8,7 +8,6 @@ import { FooterComponent } from './footer/footer.component';
   standalone: true,
   imports: [NavMenuComponent, CategoriesComponent, FooterComponent],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
 

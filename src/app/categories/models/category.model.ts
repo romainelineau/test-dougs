@@ -1,8 +1,8 @@
-import { CategoryGroup } from "./category-group.model";
+import { Group } from "./category-group.model";
 
 export interface Category {
     id: number;
-    group: CategoryGroup;
+    group: Group;
     wording: string;
     description: string;
 }

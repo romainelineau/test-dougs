@@ -1,7 +1,7 @@
-<main class="bg-body-tertiary py-5">
+<main class="my-5 px-3 px-md-0 py-5">
     <section class="container categories-container bg-body p-0">
         <app-category-filters/>
-        @switch (categorylistOrderSelected$ | async) {
+        @switch (menuLinkSelected$ | async) {
             @case (MENU_LINKS.CATEGORY_GROUP) {
                 <app-group-category-list 
                 *ngIf="groupedCategories$ | async as groupedCategories"

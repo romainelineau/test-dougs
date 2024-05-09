@@ -1,13 +1,13 @@
 import { createReducer, on } from "@ngrx/store";
 import { MenuLinkEnum } from "src/app/core/layout/nav-menu/menu-link.enum";
-import * as CategoryActions from "./categories.actions";
 import { Category } from "../models/category.model";
 import { GroupedCategory } from "../models/category-group.model";
+import * as CategoryActions from "./categories.actions";
 
 export const featureKey = 'categories';
 
 export interface CategoriesState {
-    categorylistOrderSelected: MenuLinkEnum;
+    menuLinkSelected: MenuLinkEnum;
     categories: Category[];
     groups: GroupedCategory[];
     categorySelected: number | null;
@@ -18,7 +18,7 @@ export interface CategoriesState {
 }
 
 export const initialState: CategoriesState = {
-    categorylistOrderSelected: MenuLinkEnum.CATEGORY_GROUP,
+    menuLinkSelected: MenuLinkEnum.CATEGORY_GROUP,
     categories: [],
     groups: [],
     categorySelected: null,
@@ -30,9 +30,9 @@ export const initialState: CategoriesState = {
 
 export const reducer = createReducer(
     initialState,
-    on(CategoryActions.SetCategoryListOrder, (state, action): CategoriesState => ({
+    on(CategoryActions.SetMenuLinkSelected, (state, { link }): CategoriesState => ({
         ...state,
-        categorylistOrderSelected: action.order,
+        menuLinkSelected: link,
     })),
     on(CategoryActions.LoadCategoriesSuccess, (state, { categories, groups }): CategoriesState => ({
         ...state,

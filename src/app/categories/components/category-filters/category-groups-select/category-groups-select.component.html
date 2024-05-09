@@ -1,5 +1,5 @@
 <select class="form-select h-100" [formControl]="group" aria-label="Filtrer par groupe de catégories">
-    <option selected [value]="defaultValue">Tous les groupes de catégories</option>
+    <option selected [value]="DEFAULT_VALUE">Tous les groupes de catégories</option>
     @for (group of groups$ | async; track group.id) {
         <option [value]="group.id">{{ group.name }}</option>
     }

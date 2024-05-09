@@ -1,0 +1,30 @@
+@import '../../../../styles/variables';
+
+.category-card {
+    line-height: 1rem;
+    border: none !important;
+    border-radius: 0 !important;
+    outline: 1px solid $gray-800;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+
+    h3.category-title, p.category-description {
+        font-size: $text-size * .9;
+    }
+
+    p.category-description {
+        color: $dark-gray;
+    }
+
+    &:not(.selected):hover {
+        background: $gray-600;
+        transition: all .15s ease-in-out;
+    }
+
+    &.selected {
+        background: $blue-bg;
+        transition: all .15s ease-in-out;
+        outline: 1px solid $primary;
+        z-index: 3;
+    }
+}

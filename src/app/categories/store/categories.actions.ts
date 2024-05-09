@@ -3,9 +3,9 @@ import { MenuLinkEnum } from "src/app/core/layout/nav-menu/menu-link.enum";
 import { Category } from "../models/category.model";
 import { GroupedCategory } from "../models/category-group.model";
 
-export const SetCategoryListOrder = createAction(
-    '[Nav Menu Link Component] Set Category List Order',
-    props<{ order: MenuLinkEnum}>(),
+export const SetMenuLinkSelected = createAction(
+    '[Nav Menu Link Component] Set Menu Link Selected',
+    props<{ link: MenuLinkEnum}>(),
 );
 
 export const LoadCategories = createAction(

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CategoryGroup } from '../models/category-group.model';
+import { Group } from '../../models/category-group.model';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -10,6 +10,6 @@ import { NgClass } from '@angular/common';
   styleUrl: './group-category-banner.component.scss'
 })
 export class GroupCategoryBannerComponent {
-  @Input() group!: CategoryGroup;
+  @Input() group!: Group;
 
 }

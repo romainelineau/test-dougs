@@ -1,0 +1,23 @@
+@import '../../../../../styles/variables';
+
+.nav-btn {
+    text-decoration: none;
+    padding: .5rem;
+    margin-right: $spacer * .5;
+    border-radius: .25rem;
+    font-size: $text-size * .75;
+    color: $secondary;
+    background: none;
+    border: none;
+    transition: color .15s ease-in-out;
+
+    &.is-active {
+        color: $primary;
+        background: $body-tertiary-bg;
+    }
+
+    &:hover {
+        color: $primary;
+        transition: color .15s ease-in-out;
+    }
+}

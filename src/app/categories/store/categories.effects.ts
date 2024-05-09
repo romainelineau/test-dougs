@@ -2,10 +2,10 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, combineLatest, map, of, switchMap } from "rxjs";
 import { CategoriesService } from "../services/categories.service";
-import * as CategoryActions from "./categories.actions";
 import { Category } from "../models/category.model";
 import { VisibleCategory } from "../models/visible-category.model";
 import { GroupedCategory } from "../models/category-group.model";
+import * as CategoryActions from "./categories.actions";
 
 @Injectable()
 export class CategoriesEffects {
@@ -19,7 +19,6 @@ export class CategoriesEffects {
             ]).pipe(
                 map(([allCategories, visibleCategories]) => {
                     const categories = this.filterVisibleCategories(allCategories, visibleCategories);
-
                     const groups = this.getGroups(categories);
 
                     return CategoryActions.LoadCategoriesSuccess({ categories, groups })}
@@ -40,15 +39,12 @@ export class CategoriesEffects {
         categories.forEach(category => {
             const groupId = category.group?.id;
             
-            // Check if group already exists
             if (!groupedCategories[groupId] && groupId) {
-                // Create group with empty categories array
                 groupedCategories[groupId] = {
                     ...category.group,
                     categories: []
                 };
             }
-            
         });
 
         return Object.values(groupedCategories);

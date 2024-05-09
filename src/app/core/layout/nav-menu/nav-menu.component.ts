@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { MenuLinkEnum } from './menu-link.enum';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { selectCategoryListOrderActive } from 'src/app/categories/store/categories.selectors';
+import { selectMenuLinkSelected } from 'src/app/categories/store/categories.selectors';
 
 @Component({
   selector: 'app-nav-menu',
@@ -16,11 +16,11 @@ import { selectCategoryListOrderActive } from 'src/app/categories/store/categori
 })
 export class NavMenuComponent implements OnInit {
   menu = NAV_MENU_LINKS;
-  categoryListOrderActive$!: Observable<MenuLinkEnum>;
+  menuLinkSelected$!: Observable<MenuLinkEnum>;
 
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.categoryListOrderActive$ = this.store.select(selectCategoryListOrderActive);
+    this.menuLinkSelected$ = this.store.select(selectMenuLinkSelected);
   }
 }
