@@ -1,8 +1,17 @@
 <main class="bg-body-tertiary py-5">
     <section class="container categories-container bg-body p-0">
         <app-category-filters/>
-        <app-group-category-list 
-            *ngIf="groupedCategories$ | async as groupedCategories"
-            [groupedCategories]="groupedCategories"/>
+        @switch (categorylistOrderSelected$ | async) {
+            @case (MENU_LINKS.CATEGORY_GROUP) {
+                <app-group-category-list 
+                *ngIf="groupedCategories$ | async as groupedCategories"
+                [groupedCategories]="groupedCategories"/>
+            }
+            @case (MENU_LINKS.ALPHABETICAL_ORDER) {
+                <app-alphabetical-order-list
+                *ngIf="alphabeticallyOrderedCategories$ | async as categories"
+                [categories]="categories"/>
+            }
+        }
     </section>
 </main>

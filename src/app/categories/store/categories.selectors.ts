@@ -16,6 +16,15 @@ export const selectCategories = createSelector(
     (state) => state.categories
 );
 
+export const selectAlphabeticallyOrderedCategories = createSelector(
+    selectCategories,
+    (categories) => {
+        const categoriesSorted = [...categories];
+        
+        return categoriesSorted.sort((a, b) => a.wording.localeCompare(b.wording))
+    }
+);
+
 export const selectCategoriesFilteredByGroup = createSelector(
     selectCategoriesState,
     (state) => {
