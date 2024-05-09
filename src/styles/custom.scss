@@ -53,6 +53,10 @@ $text-size: 1rem;
     }
 }
 
+.footer-btn {
+    font-size: $text-size * .9 !important;
+}
+
 // Custom CSS Categories Container
 .categories-container {
     border: 1px solid $gray-800;
