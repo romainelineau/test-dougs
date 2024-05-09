@@ -1,12 +1,32 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~bootstrap-icons/font/bootstrap-icons.min.css';
 
+// Color variables
 $primary: #11ABEC;
 $secondary: #58676D;
 $gray-600: #F3F5F8;
+$gray-800: #DCE4ED;
 $black: #001A25;
 $body-tertiary-bg: $gray-600;
+
+$m-green: #0ED99B;
+$m-bg-green: #ECFCF7;
+$m-purple: #B911EC;
+$m-bg-purple: #FBEFFF;
+$m-blue: #11ABEC;
+$m-bg-blue: #F1F7FB;
+$m-red: #FD755F;
+$m-bg-red: #FFEBE6;
+$m-pink: #EC1198;
+$m-bg-pink: #FDF2F9;
+$m-orange: #FAA11C;
+$m-bg-orange: #FEF5BF;
+
+// Space variables
 $spacer: 1rem;
+
+// Text variables
+$text-size: 1rem;
 
 // Custom CSS Buttons
 .nav-btn {
@@ -14,7 +34,7 @@ $spacer: 1rem;
     padding: .5rem;
     margin-right: $spacer * .5;
     border-radius: .25rem;
-    font-size: .75rem;
+    font-size: $text-size * .75;
     color: $secondary;
     background: none;
     border: none;
@@ -28,6 +48,63 @@ $spacer: 1rem;
     &:hover {
         color: $primary;
         transition: color .15s ease-in-out;
+    }
+}
+
+// Custom CSS Categories Container
+.categories-container {
+    border: 1px solid $gray-800;
+    border-radius: .25rem;
+    overflow: hidden;
+}
+
+// Custom CSS Card
+.group-category {
+    font-size: $text-size * .75;
+    color: $m-orange;
+    background: rgba($m-orange, .15);
+    position: relative;
+    z-index: 999;
+
+    &.m-green {
+        color: $m-green;
+        background: $m-bg-green;
+        border: 1px solid $m-bg-green;
+    }
+    &.m-purple {
+        color: $m-purple;
+        background: $m-bg-purple;
+        border: 1px solid $m-bg-purple;
+    }
+    &.m-blue {
+        color: $m-blue;
+        background: $m-bg-blue;
+        border: 1px solid $m-bg-blue;
+    }
+    &.m-red {
+        color: $m-red;
+        background: $m-bg-red;
+        border: 1px solid $m-bg-red;
+    }
+    &.m-pink {
+        color: $m-pink;
+        background: $m-bg-pink;
+        border: 1px solid $m-bg-pink;
+    }
+}
+
+// Custom CSS Card
+.card {
+    font-size: $text-size * .9;
+    border: none !important;
+    border-radius: 0 !important;
+    outline: 1px solid $gray-800;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+
+    &:hover {
+        background: $gray-600;
+        transition: all .15s ease-in-out;
     }
 }
 

@@ -1,6 +1,6 @@
-<nav class="navbar sticky-top navbar-expand">
-    <div class="container">
-        <a class="navbar-brand">Catégories</a>
+<nav class="navbar sticky-top bg-body navbar-expand">
+    <div class="container p-0">
+        <a class="navbar-brand fw-semibold">Catégories</a>
         <div class="collapse navbar-collapse">
             <div *ngIf="categoryListOrderActive$ | async as categoryListOrderActive" class="navbar-nav">
                 @for (link of menu; track link.value) {

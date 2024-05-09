@@ -1,6 +1,8 @@
 <main class="bg-body-tertiary py-5">
-    <section class="container bg-body p-0">
+    <section class="container categories-container bg-body p-0">
         <app-category-filters/>
-        <app-group-category-list [categories]="categories$ | async"/>
+        <app-group-category-list 
+            *ngIf="groupedCategories$ | async as groupedCategories"
+            [groupedCategories]="groupedCategories"/>
     </section>
 </main>
