@@ -1,30 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Category } from '../models/category.model';
-import { Observable } from 'rxjs';
-import { AsyncPipe, NgClass, NgIf } from '@angular/common';
-import { Store } from '@ngrx/store';
-import { SetCategorySelected } from '../store/categories.actions';
-import { selectCategoryIdSelected } from '../store/categories.selectors';
+import { CategoryCardComponent } from '../category-card/category-card.component';
 
 @Component({
   selector: 'app-alphabetical-order-list',
   standalone: true,
-  imports: [NgClass, NgIf, AsyncPipe],
+  imports: [CategoryCardComponent],
   templateUrl: './alphabetical-order-list.component.html',
   styleUrl: './alphabetical-order-list.component.scss'
 })
-export class AlphabeticalOrderListComponent implements OnInit {
+export class AlphabeticalOrderListComponent {
   @Input() categories!: Category[];
-  categoryIdSelected$!: Observable<number | null>;
-
-  constructor(private store: Store) {}
-
-  ngOnInit(): void {
-    this.categoryIdSelected$ = this.store.select(selectCategoryIdSelected);
-  }
-
-  onSelectCategory(categoryId: number): void {
-    this.store.dispatch(SetCategorySelected({ categoryId }));
-  }
 
 }
