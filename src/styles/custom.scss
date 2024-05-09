@@ -6,6 +6,8 @@ $primary: #11ABEC;
 $secondary: #58676D;
 $gray-600: #F3F5F8;
 $gray-800: #DCE4ED;
+$dark-gray: #636970;
+$blue-bg: #F1F7FC;
 $black: #001A25;
 $body-tertiary-bg: $gray-600;
 
@@ -55,16 +57,16 @@ $text-size: 1rem;
 .categories-container {
     border: 1px solid $gray-800;
     border-radius: .25rem;
-    overflow: hidden;
 }
 
-// Custom CSS Card
-.group-category {
-    font-size: $text-size * .75;
+// Custom CSS Grouped Categories
+.group-label {
+    font-size: $text-size * .8;
     color: $m-orange;
     background: rgba($m-orange, .15);
+    border: 1px solid $m-bg-orange;
     position: relative;
-    z-index: 999;
+    z-index: 2;
 
     &.m-green {
         color: $m-green;
@@ -94,17 +96,32 @@ $text-size: 1rem;
 }
 
 // Custom CSS Card
-.card {
-    font-size: $text-size * .9;
+.category-card {
+    line-height: 1rem;
     border: none !important;
     border-radius: 0 !important;
     outline: 1px solid $gray-800;
     cursor: pointer;
     transition: all .15s ease-in-out;
 
-    &:hover {
+    h3, p {
+        font-size: $text-size * .9;
+    }
+
+    p {
+        color: $dark-gray;
+    }
+
+    &:not(.selected):hover {
         background: $gray-600;
         transition: all .15s ease-in-out;
+    }
+
+    &.selected {
+        background: $blue-bg;
+        transition: all .15s ease-in-out;
+        outline: 1px solid $primary;
+        z-index: 3;
     }
 }
 

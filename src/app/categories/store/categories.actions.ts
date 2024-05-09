@@ -19,3 +19,8 @@ export const LoadCategoriesSuccess = createAction(
 export const LoadCategoriesFailure = createAction(
     '[@Effect Load Categories] Load Categories Failure',
 );
+
+export const SetCategorySelected = createAction(
+    '[Group Category List Component] Set Category Selected',
+    props<{ categoryId: number }>(),
+);

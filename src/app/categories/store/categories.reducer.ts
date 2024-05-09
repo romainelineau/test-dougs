@@ -8,11 +8,13 @@ export const featureKey = 'categories';
 export interface CategoriesState {
     categorylistOrderSelected: MenuLinkEnum;
     categories: Category[];
+    categorySelected: number | null;
 }
 
 export const initialState: CategoriesState = {
     categorylistOrderSelected: MenuLinkEnum.CATEGORY_GROUP,
-    categories: []
+    categories: [],
+    categorySelected: null,
 };
 
 export const reducer = createReducer(
@@ -24,5 +26,9 @@ export const reducer = createReducer(
     on(CategoryActions.LoadCategoriesSuccess, (state, action): CategoriesState => ({
         ...state,
         categories: action.categories,
+    })),
+    on(CategoryActions.SetCategorySelected, (state, {categoryId}): CategoriesState => ({
+        ...state,
+        categorySelected: state.categorySelected === categoryId ? null : categoryId,
     }))
 );

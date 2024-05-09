@@ -41,3 +41,8 @@ export const selectCategoriesFilteredByGroup = createSelector(
         return Object.values(groupedCategories);
     }
 );
+
+export const selectCategoryIdSelected = createSelector(
+    selectCategoriesState,
+    (state) => state.categorySelected
+);
