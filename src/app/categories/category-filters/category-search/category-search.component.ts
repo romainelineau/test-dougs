@@ -21,8 +21,10 @@ export class CategorySearchComponent implements OnInit, OnDestroy {
     this.search.valueChanges.pipe(
       distinctUntilChanged(),
       takeUntil(this.destroyed$),
-      tap((search) => this.store.dispatch(SetSearchFilter({ search }))
-      )
+      tap((value) => {
+        const search = value ?? '';
+        this.store.dispatch(SetSearchFilter({ search }))
+      })
     ).subscribe();  
   }
 

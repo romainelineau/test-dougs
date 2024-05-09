@@ -1,6 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { MenuLinkEnum } from "src/app/core/layout/nav-menu/menu-link.enum";
 import { Category } from "../models/category.model";
+import { GroupedCategory } from "../models/category-group.model";
 
 export const SetCategoryListOrder = createAction(
     '[Nav Menu Link Component] Set Category List Order',
@@ -13,7 +14,7 @@ export const LoadCategories = createAction(
 
 export const LoadCategoriesSuccess = createAction(
     '[@Effect Load Categories] Load Categories Success',
-    props<{ categories: Category[] }>(),
+    props<{ categories: Category[]; groups: GroupedCategory[] }>(),
 );
 
 export const LoadCategoriesFailure = createAction(
@@ -27,5 +28,10 @@ export const SetCategorySelected = createAction(
 
 export const SetSearchFilter = createAction(
     '[Category Search Component] Set Search Filter',
-    props<{ search: string | number | null }>(),
+    props<{ search: string }>(),
+);
+
+export const SetGroupFilter = createAction(
+    '[Groups Select Component] Set Group Filter',
+    props<{ group: number | null }>(),
 );

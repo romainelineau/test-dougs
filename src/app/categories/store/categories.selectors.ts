@@ -33,8 +33,20 @@ export const selectCategoriesFilteredBySearch = createSelector(
     }
 );
 
-export const selectAlphabeticallyOrderedCategories = createSelector(
+export const selectCategoriesFilteredByGroup = createSelector(
     selectCategoriesFilteredBySearch,
+    selectFilters,
+    (categories, { group }) => {
+        if (group !== null) {
+            return categories.filter((category) => category.group.id === group)
+        }
+
+        return categories;
+    }
+);
+
+export const selectAlphabeticallyOrderedCategories = createSelector(
+    selectCategoriesFilteredByGroup,
     (categories) => {
         const categoriesSorted = [...categories];
         
@@ -43,7 +55,7 @@ export const selectAlphabeticallyOrderedCategories = createSelector(
 );
 
 export const selectGroupOrderedCategories = createSelector(
-    selectCategoriesFilteredBySearch,
+    selectCategoriesFilteredByGroup,
     (categories) => {
         const groupedCategories: {[key: number]: GroupedCategory} = {};
 
@@ -71,4 +83,9 @@ export const selectGroupOrderedCategories = createSelector(
 export const selectCategoryIdSelected = createSelector(
     selectCategoriesState,
     (state) => state.categorySelected
+);
+
+export const selectGroups = createSelector(
+    selectCategoriesState,
+    (state) => state.groups
 );
