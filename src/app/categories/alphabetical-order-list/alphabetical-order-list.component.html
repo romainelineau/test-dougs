@@ -1,5 +1,5 @@
 <div class="list-categories row m-0 row-cols-1 row-cols-md-2">
     @for (category of categories; track category.id) {
-        <app-category-card class="col p-0" [category]="category"/>
+        <app-category-card class="col p-0" [category]="category" [displayBadge]="true"/>
     }
 </div>

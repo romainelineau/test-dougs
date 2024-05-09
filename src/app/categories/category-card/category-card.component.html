@@ -1,6 +1,7 @@
 <div class="card category-card h-100 p-3" [ngClass]="{'selected': category.id === (categoryIdSelected$ | async)}" (click)="onSelectCategory(category.id)" [attr.role]="'none'">
     <div class="card-body d-flex flex-wrap align-content-center p-0">
-        <h3 class="fw-medium w-100 m-0">{{ category.wording }}</h3>
-        <p *ngIf="category.description" class="fw-light w-100 text-secondary mt-2 m-0">{{ category.description }}</p>
+        <app-group-category-badge *ngIf="displayBadge" [group]="category.group" class="mb-2"/>
+        <h3 class="category-title fw-medium w-100 m-0">{{ category.wording }}</h3>
+        <p *ngIf="category.description" class="category-description fw-light w-100 text-secondary mt-2 m-0">{{ category.description }}</p>
     </div>
 </div>

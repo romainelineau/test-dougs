@@ -59,14 +59,42 @@ $text-size: 1rem;
     border-radius: .25rem;
 }
 
-// Custom CSS Grouped Categories
-.group-label {
+// Custom CSS Card
+.category-card {
+    line-height: 1rem;
+    border: none !important;
+    border-radius: 0 !important;
+    outline: 1px solid $gray-800;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+
+    h3.category-title, p.category-description {
+        font-size: $text-size * .9;
+    }
+
+    p.category-description {
+        color: $dark-gray;
+    }
+
+    &:not(.selected):hover {
+        background: $gray-600;
+        transition: all .15s ease-in-out;
+    }
+
+    &.selected {
+        background: $blue-bg;
+        transition: all .15s ease-in-out;
+        outline: 1px solid $primary;
+        z-index: 3;
+    }
+}
+
+// Custom CSS Groups
+.group-label, .group-badge {
     font-size: $text-size * .8;
     color: $m-orange;
-    background: rgba($m-orange, .15);
+    background: $m-bg-orange;
     border: 1px solid $m-bg-orange;
-    position: relative;
-    z-index: 2;
 
     &.m-green {
         color: $m-green;
@@ -95,34 +123,14 @@ $text-size: 1rem;
     }
 }
 
-// Custom CSS Card
-.category-card {
-    line-height: 1rem;
-    border: none !important;
-    border-radius: 0 !important;
-    outline: 1px solid $gray-800;
-    cursor: pointer;
-    transition: all .15s ease-in-out;
+.group-label {
+    position: relative;
+    z-index: 2;
+}
 
-    h3, p {
-        font-size: $text-size * .9;
-    }
-
-    p {
-        color: $dark-gray;
-    }
-
-    &:not(.selected):hover {
-        background: $gray-600;
-        transition: all .15s ease-in-out;
-    }
-
-    &.selected {
-        background: $blue-bg;
-        transition: all .15s ease-in-out;
-        outline: 1px solid $primary;
-        z-index: 3;
-    }
+.group-badge {
+    border-radius: 50rem;
+    padding: .15rem .75rem;
 }
 
 @import "../../node_modules/bootstrap/scss/bootstrap";

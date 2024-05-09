@@ -3,13 +3,13 @@ import { CategoryGroup } from '../models/category-group.model';
 import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-group-category-banner',
+  selector: 'app-group-category-badge',
   standalone: true,
   imports: [NgClass],
-  templateUrl: './group-category-banner.component.html',
-  styleUrl: './group-category-banner.component.scss'
+  templateUrl: './group-category-badge.component.html',
+  styleUrl: './group-category-badge.component.scss'
 })
-export class GroupCategoryBannerComponent {
+export class GroupCategoryBadgeComponent {
   @Input() group!: CategoryGroup;
 
 }
