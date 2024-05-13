@@ -4,7 +4,7 @@ import { catchError, combineLatest, map, of, switchMap } from "rxjs";
 import { CategoriesService } from "../services/categories.service";
 import { Category } from "../models/category.model";
 import { VisibleCategory } from "../models/visible-category.model";
-import { GroupedCategory } from "../models/category-group.model";
+import { Group } from "../models/group.model";
 import * as CategoryActions from "./categories.actions";
 
 @Injectable()
@@ -17,8 +17,9 @@ export class CategoriesEffects {
                 this.categoriesService.getAllCategories(),
                 this.categoriesService.getVisibleCategories()
             ]).pipe(
-                map(([allCategories, visibleCategories]) => {
-                    const categories = this.filterVisibleCategories(allCategories, visibleCategories);
+                map(([allCategories, visibleCategoryIds]) => {
+                    const visibleCategories = this.filterVisibleCategories(allCategories, visibleCategoryIds);
+                    const categories = this.formatGroupCategories(visibleCategories);
                     const groups = this.getGroups(categories);
 
                     return CategoryActions.LoadCategoriesSuccess({ categories, groups })}
@@ -33,17 +34,23 @@ export class CategoriesEffects {
         return allCategories.filter((categorie) => visibleCategories.find((visibleCategory) => visibleCategory.id === categorie.id));
     }
 
-    private getGroups(categories: Category[]): GroupedCategory[] {
-        const groupedCategories: {[key: number]: GroupedCategory} = {};
+    private formatGroupCategories(categories: Category[]): Category[] {
+        return categories.map((categorie) => ({
+            ...categorie, 
+            group: {...categorie.group!, color: categorie.group?.color ?? ''}
+        }))
+    }
+
+    private getGroups(categories: Category[]): Group[] {
+        const groupedCategories: {[key: number]: Group} = {};
 
         categories.forEach(category => {
             const groupId = category.group?.id;
             
-            if (!groupedCategories[groupId] && groupId) {
+            if (groupId && !groupedCategories[groupId]) {
                 groupedCategories[groupId] = {
                     ...category.group,
-                    categories: []
-                };
+                } as Group;
             }
         });
 

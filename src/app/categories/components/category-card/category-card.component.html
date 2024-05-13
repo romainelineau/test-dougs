@@ -1,6 +1,6 @@
 <div class="card category-card h-100 p-3" [ngClass]="{'selected': category.id === (categoryIdSelected$ | async)}" (click)="onSelectCategory(category.id)" [attr.role]="'none'">
     <div class="card-body d-flex flex-wrap align-content-center p-0">
-        @if (displayBadge) {
+        @if (displayBadge && category.group) {
             <app-group-category-badge [group]="category.group" class="mb-2"/>
         }
         <h3 class="category-title fw-medium w-100 m-0">{{ category.wording }}</h3>

@@ -1,5 +1,6 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import * as fromCategories from './categories.reducer';
+import { GroupedCategories } from "../models/grouped-categories.model";
 
 export const selectCategoriesState = createFeatureSelector<fromCategories.CategoriesState>(
     fromCategories.featureKey,
@@ -42,7 +43,7 @@ export const selectCategoriesFilteredByGroup = createSelector(
     selectCategoriesFilteredBySearch,
     selectFilters,
     (categories, { group }) => {
-        return group === null ? categories : categories.filter((category) => category.group.id === group);
+        return group === null ? categories : categories.filter((category) => category.group?.id === group);
     }
 );
 
@@ -56,9 +57,9 @@ export const selectGroupOrderedCategories = createSelector(
     selectGroups,
     (categories, groups) => {
 
-        const groupedCategories = [...groups].map((group) => ({
+        const groupedCategories: GroupedCategories[] = [...groups].map((group) => ({
             ...group,
-            categories: categories.filter((category) => category.group.id === group.id)
+            categories: categories.filter((category) => category.group?.id === group.id)
         }))
 
         return groupedCategories.filter((group) => group.categories.length);

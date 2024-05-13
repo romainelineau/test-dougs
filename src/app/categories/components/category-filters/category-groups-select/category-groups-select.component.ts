@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, distinctUntilChanged, takeUntil, tap } from 'rxjs';
-import { GroupedCategory } from '../../../models/category-group.model';
+import { Group } from '../../../models/group.model';
 import { selectGroups } from '../../../store/categories.selectors';
 import { AsyncPipe } from '@angular/common';
 import { SetGroupFilter } from '../../../store/categories.actions';
@@ -17,7 +17,7 @@ import { SetGroupFilter } from '../../../store/categories.actions';
 export class CategoryGroupsSelectComponent implements OnInit, OnDestroy {
   DEFAULT_VALUE = "default";
   group = new FormControl(this.DEFAULT_VALUE);
-  groups$!: Observable<GroupedCategory[]>;
+  groups$!: Observable<Group[]>;
   destroyed$ = new Subject<boolean>();
 
   constructor(private store: Store) {}

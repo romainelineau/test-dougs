@@ -7,9 +7,9 @@ import { Category } from './models/category.model';
 import * as CategorySelectors from './store/categories.selectors';
 import { Observable } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { GroupedCategory } from './models/category-group.model';
 import { MenuLinkEnum } from '../core/layout/nav-menu/menu-link.enum';
 import { AlphabeticalOrderListComponent } from './components/alphabetical-order-list/alphabetical-order-list.component';
+import { GroupedCategories } from './models/grouped-categories.model';
 
 @Component({
   selector: 'app-categories',
@@ -19,7 +19,7 @@ import { AlphabeticalOrderListComponent } from './components/alphabetical-order-
   styleUrl: './categories.component.scss'
 })
 export class CategoriesComponent implements OnInit {
-  groupedCategories$!: Observable<GroupedCategory[]>;
+  groupedCategories$!: Observable<GroupedCategories[]>;
   alphabeticallyOrderedCategories$!: Observable<Category[]>;
   menuLinkSelected$!: Observable<MenuLinkEnum>;
   MENU_LINKS = MenuLinkEnum;

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NavMenuComponent } from './nav-menu.component';
+import { Store } from '@ngrx/store';
+import { MockStore } from 'src/app/categories/store/store.mock';
 
 describe('NavMenuComponent', () => {
   let component: NavMenuComponent;
@@ -8,7 +9,11 @@ describe('NavMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavMenuComponent]
+      imports: [NavMenuComponent],
+      providers: [{
+        provide: Store,
+        useClass: MockStore,
+      }]
     })
     .compileComponents();
     

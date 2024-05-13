@@ -1,7 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
 import { MenuLinkEnum } from "src/app/core/layout/nav-menu/menu-link.enum";
 import { Category } from "../models/category.model";
-import { GroupedCategory } from "../models/category-group.model";
+import { Group } from "../models/group.model";
 import * as CategoryActions from "./categories.actions";
 
 export const featureKey = 'categories';
@@ -9,7 +9,7 @@ export const featureKey = 'categories';
 export interface CategoriesState {
     menuLinkSelected: MenuLinkEnum;
     categories: Category[];
-    groups: GroupedCategory[];
+    groups: Group[];
     categorySelected: number | null;
     filters: {
         search: string;

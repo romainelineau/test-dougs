@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CategoryFiltersComponent } from './category-filters.component';
+import { Store } from '@ngrx/store';
+import { MockStore } from '../../store/store.mock';
 
 describe('CategoryFiltersComponent', () => {
   let component: CategoryFiltersComponent;
@@ -8,7 +9,11 @@ describe('CategoryFiltersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CategoryFiltersComponent]
+      imports: [CategoryFiltersComponent],
+      providers: [{
+        provide: Store,
+        useClass: MockStore,
+      }]
     })
     .compileComponents();
     

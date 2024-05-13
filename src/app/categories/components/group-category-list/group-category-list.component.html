@@ -1,12 +1,12 @@
 @for (group of groupedCategories; track group.id) {
     <app-group-category-banner [group]="group" />
-    <div class="row m-0 row-cols-1 row-cols-md-2">
+    <div class="category-list row m-0 row-cols-1 row-cols-md-2">
         @for (category of group.categories; track category.id) {
             <app-category-card class="col p-0" [category]="category"/>
         }
     </div>
 } @empty {
-    <div class="col d-flex justify-content-center p-5">
+    <div class="no-category-message col d-flex justify-content-center p-5">
         <p class="text-secondary">Aucun résultat</p>
     </div>
 }

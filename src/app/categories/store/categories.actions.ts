@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { MenuLinkEnum } from "src/app/core/layout/nav-menu/menu-link.enum";
 import { Category } from "../models/category.model";
-import { GroupedCategory } from "../models/category-group.model";
+import { Group } from "../models/group.model";
 
 export const SetMenuLinkSelected = createAction(
     '[Nav Menu Link Component] Set Menu Link Selected',
@@ -14,7 +14,7 @@ export const LoadCategories = createAction(
 
 export const LoadCategoriesSuccess = createAction(
     '[@Effect Load Categories] Load Categories Success',
-    props<{ categories: Category[]; groups: GroupedCategory[] }>(),
+    props<{ categories: Category[]; groups: Group[] }>(),
 );
 
 export const LoadCategoriesFailure = createAction(

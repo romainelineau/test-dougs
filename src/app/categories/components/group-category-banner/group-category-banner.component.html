@@ -1,4 +1,4 @@
-<div class="group-label row m-0" [ngClass]="group.color ? group.color : 'm-default'">
+<div class="group-label row m-0" [ngClass]="group.color !== '' ? group.color : 'm-default'">
     <div class="col px-3">
         <p class="fw-lighter m-0">{{ group.name }}</p>
     </div>
